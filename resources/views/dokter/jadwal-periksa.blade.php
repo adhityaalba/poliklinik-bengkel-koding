@@ -31,6 +31,7 @@
                                 <th>Hari</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Selesai</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -42,6 +43,11 @@
                                     <td>{{ $jadwal->hari }}</td>
                                     <td>{{ $jadwal->jam_mulai }}</td>
                                     <td>{{ $jadwal->jam_selesai }}</td>
+                                    <td>
+                                        <span class="{{ $jadwal->status ? 'text-success' : 'text-danger' }}">
+                                            {{ $jadwal->status ? 'Aktif' : 'Tidak Aktif' }}
+                                        </span>
+                                    </td>
                                     <td>
                                         <button class="btn btn-primary" data-toggle="modal"
                                             data-target="#editModal{{ $jadwal->id }}">
@@ -97,6 +103,13 @@
                                             <label for="jam_selesai">Jam Selesai</label>
                                             <input type="time" class="form-control" id="jam_selesai" name="jam_selesai"
                                                 required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Status</label>
+                                            <select class="form-control" id="status" name="status" required>
+                                                <option value="Aktif">Aktif</option>
+                                                <option value="Tidak Aktif">Tidak Aktif</option>
+                                            </select>
                                         </div>
                                 </div>
                                 <div class="modal-footer">

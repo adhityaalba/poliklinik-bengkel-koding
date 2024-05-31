@@ -45,12 +45,14 @@ class JadwalController extends Controller
                 'hari' => 'required',
                 'jam_mulai' => 'required',
                 'jam_selesai' => 'required',
+                'status' => 'required',
             ],
             [
                 'id_dokter.required' => 'Dokter tidak boleh kosong',
                 'hari.required' => 'Hari tidak boleh kosong',
                 'jam_mulai.required' => 'Jam Mulai tidak boleh kosong',
                 'jam_selesai.required' => 'Jam Selesai tidak boleh kosong',
+                'status.required' => 'Status  tidak boleh kosong',
             ]
         );
 
@@ -60,6 +62,7 @@ class JadwalController extends Controller
             'hari' => $request->hari,
             'jam_mulai' => $request->jam_mulai,
             'jam_selesai' => $request->jam_selesai,
+            'status' => $request->status,
         ]);
         $jadwal->dokter()->associate($dokter);
         $jadwal->save();
@@ -105,12 +108,14 @@ class JadwalController extends Controller
                 'hari' => 'required',
                 'jam_mulai' => 'required',
                 'jam_selesai' => 'required',
+                'status' => 'required',
             ],
             [
                 'id_dokter.required' => 'Dokter tidak boleh kosong',
                 'hari.required' => 'Hari tidak boleh kosong',
                 'jam_mulai.required' => 'Jam Mulai tidak boleh kosong',
                 'jam_selesai.required' => 'Jam Selesai tidak boleh kosong',
+                'status.required' => 'Status tidak boleh kosong',
             ]
         );
 
@@ -121,6 +126,7 @@ class JadwalController extends Controller
             'hari' => $request->hari,
             'jam_mulai' => $request->jam_mulai,
             'jam_selesai' => $request->jam_selesai,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('jadwalperiksa')->with('success', 'Jadwal berhasil diubah');
